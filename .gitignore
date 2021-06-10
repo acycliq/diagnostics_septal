@@ -1,0 +1,10 @@
+
+.idea/
+.xml
+
+# hide the user name/passwd from tracking
+credentials.py
+
+# hide notebook checkpoints
+.ipynb_checkpoints
+
