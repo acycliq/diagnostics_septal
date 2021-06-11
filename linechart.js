@@ -5,8 +5,8 @@ function linechart(data) {
 
     // format the data
     data.forEach(function (d) {
-        d.date = +d.date;
-        d.close = +d.close;
+        d.iteration = +d.iteration;
+        d.prob = +d.prob;
     });
 
     // set the dimensions and margins of the graph
@@ -22,10 +22,10 @@ function linechart(data) {
     // define the line
     var valueline = d3.line()
         .x(function (d) {
-            return x(d.date);
+            return x(d.iteration);
         })
         .y(function (d) {
-            return y(d.close);
+            return y(d.prob);
         });
 
     // append the svg obgect to the body of the page
@@ -42,10 +42,10 @@ function linechart(data) {
 
     // Scale the range of the data
     x.domain(d3.extent(data, function (d) {
-        return d.date;
+        return d.iteration;
     }));
     y.domain([0, d3.max(data, function (d) {
-        return d.close;
+        return d.prob;
     })]);
 
     // Add the valueline path.
